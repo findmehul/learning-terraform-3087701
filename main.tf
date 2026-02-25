@@ -85,7 +85,7 @@ module "blog_autoscaling" {
   min_size = 1
   max_size = 2
 
-  vpc_zone_identifier = module.blog_vpc.private_subnets
+  vpc_zone_identifier = module.blog_vpc.public_subnets
 
   launch_template_name   = "blog"
   security_groups        = [module.blog_sg.security_group_id]
