@@ -52,6 +52,9 @@ module "blog_alb" {
   vpc_id  = module.blog_vpc.vpc_id
   subnets = module.blog_vpc.public_subnets
 
+  # 1. STOP the module from creating the empty 'blog-alb' SG
+  create_security_group = false
+
   security_groups = [module.blog_sg.security_group_id]
 
   listeners = {
